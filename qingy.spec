@@ -14,6 +14,9 @@ BuildRequires:	DirectFB-devel
 BuildRequires:	autoconf
 BuildRequires:	fbset
 BuildRequires:	pam-devel
+BuildRequires:	pkgconfig
+Requires:	DirectFB-font-ft2
+Requires:	DirectFB-image-png
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
