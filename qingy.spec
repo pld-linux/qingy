@@ -9,11 +9,12 @@ Summary:	Qingy is a replacement for getty
 Summary(pl):	Qingy to zastepca getty
 Name:		qingy
 Version:	0.1.1
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		daemons
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	c081387ccd9c72398d0509c24ae44d74
+Patch0:		%{name}-configure_fix.patch
 BuildRequires:	DirectFB-devel
 URL:		http://qingy.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,9 +29,11 @@ wmaker, etc.).
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 
+%{__autoconf}
 %configure \
 	--prefix=/
 
