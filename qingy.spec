@@ -53,9 +53,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README
 %dir %{_sysconfdir}/%{name}
-%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/settings
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/settings
 %{_sysconfdir}/%{name}/sessions
 %{_sysconfdir}/%{name}/themes
-%{_sysconfdir}/pam.d/%{name}
 %{_sysconfdir}/directfbrc.qingy
+/etc/pam.d/%{name}
 %attr(755,root,root) %{_sbindir}/*
