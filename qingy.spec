@@ -21,9 +21,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Qingy is a replacement for getty. It uses DirectFB to provide a fast,
-nice GUI without the overhead of the X Window System. It allows the user
-to log in and start the session of his choice (text terminal, GNOME,
-KDE, wmaker, etc.).
+nice GUI without the overhead of the X Window System. It allows the
+user to log in and start the session of his choice (text terminal,
+GNOME, KDE, wmaker, etc.).
 
 %description -l pl
 Qingy jest zastêpc± getty. U¿ywa DirectFB aby zapewniæ szybkie, ³adne
@@ -37,7 +37,7 @@ siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
 
 %build
 %{__autoconf}
-%configure 
+%configure
 
 %{__make}
 
