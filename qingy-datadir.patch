@@ -1,0 +1,29 @@
+diff -urN qingy-0.2.3/src/load_settings.c qingy-0.2.3-datadir.patch/src/load_settings.c
+--- qingy-0.2.3/src/load_settings.c	2003-10-21 09:59:13.000000000 +0200
++++ qingy-0.2.3-datadir.patch/src/load_settings.c	2003-12-29 22:39:09.000000000 +0100
+@@ -177,9 +177,9 @@
+   LAST_USER = (char *) calloc(9+strlen(DATADIR), sizeof(char));
+   strcpy(LAST_USER, DATADIR);
+   strcat(LAST_USER, "lastuser");
+-  DEFAULT_THEME = (char *) calloc(16+strlen(DATADIR), sizeof(char));
+-  strcpy(DEFAULT_THEME, DATADIR);
+-  strcat(DEFAULT_THEME, "themes/default/");
++  DEFAULT_THEME = (char *) calloc(27, sizeof(char));
++  /* strcpy(DEFAULT_THEME, DATADIR); */
++  strcat(DEFAULT_THEME, "/usr/share/themes/default/");
+ 
+   fp = fopen(SETTINGS, "r");
+   if (!fp)
+@@ -310,9 +310,9 @@
+ 				strcpy(tmp, temp);
+ 				free(temp);
+       }
+-      THEME_DIR = (char *) calloc(strlen(DATADIR)+strlen(tmp)+9, sizeof(char));
+-      strcpy(THEME_DIR, DATADIR);
+-      strcat(THEME_DIR, "themes/");
++      THEME_DIR = (char *) calloc(strlen(tmp)+25, sizeof(char));
++/*      strcpy(THEME_DIR, DATADIR);	*/
++      strcat(THEME_DIR, "/usr/share/qingy/themes/");
+       strcat(THEME_DIR, tmp);
+       if (THEME_DIR[strlen(THEME_DIR)-1] != '/')
+ 				THEME_DIR[strlen(THEME_DIR)] = '/';
