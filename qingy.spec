@@ -1,19 +1,15 @@
-#
-# TODO:
-#	- fix stupid prefix
-# if prefix is not set
-# etc goes to /usr
-
 Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
 Version:	0.2.3
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	aff76c982645ea7afc948fedb475fc00
 URL:		http://qingy.sourceforge.net/
+Patch0:		%{name}-prefix.patch
+Patch1:		%{name}-datadir.patch
 BuildRequires:	DirectFB-devel
 BuildRequires:	autoconf
 BuildRequires:	fbset
@@ -33,11 +29,12 @@ siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__autoconf}
-%configure \
-	--prefix=/
+%configure 
 
 %{__make}
 
@@ -56,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/settings
 %{_sysconfdir}/%{name}/sessions
-%{_sysconfdir}/%{name}/themes
 %{_sysconfdir}/directfbrc.qingy
 /etc/pam.d/%{name}
 %attr(755,root,root) %{_sbindir}/*
+%{_datadir}/*
