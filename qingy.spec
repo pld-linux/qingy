@@ -15,6 +15,7 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	aff76c982645ea7afc948fedb475fc00
 URL:		http://qingy.sourceforge.net/
 BuildRequires:	DirectFB-devel
+BuildRequires:	autoconf
 BuildRequires:	fbset
 BuildRequires:	pam-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
