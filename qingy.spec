@@ -7,14 +7,15 @@
 Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
-Version:	0.2.1
-Release:	0.2
+Version:	0.2.2
+Release:	0.1
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	4427d142d9d4ad83f1a2372a6818b8df
+# Source0-md5:	4aa684af4f63b517e849d6dc2d126bbb
 URL:		http://qingy.sourceforge.net/
 BuildRequires:	DirectFB-devel
+BuildRequires:	fbset
 BuildRequires:	pam-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
