@@ -7,12 +7,12 @@
 Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
-Version:	0.2.2
+Version:	0.2.3
 Release:	0.1
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	4aa684af4f63b517e849d6dc2d126bbb
+# Source0-md5:	aff76c982645ea7afc948fedb475fc00
 URL:		http://qingy.sourceforge.net/
 BuildRequires:	DirectFB-devel
 BuildRequires:	fbset
@@ -54,6 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog README
 %dir %{_sysconfdir}/%{name}
 %attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/settings
-%dir %{_sysconfdir}/%{name}/default
-%{_sysconfdir}/%{name}/default/*
+%{_sysconfdir}/%{name}/sessions
+%{_sysconfdir}/%{name}/themes
+%{_sysconfdir}/pam.d/%{name}
+%{_sysconfdir}/directfbrc.qingy
 %attr(755,root,root) %{_sbindir}/*
