@@ -1,0 +1,11 @@
+--- qingy-0.1.1/configure.in.orig	2003-07-09 11:03:30.000000000 +0200
++++ qingy-0.1.1/configure.in	2003-07-16 15:45:15.000000000 +0200
+@@ -69,7 +69,7 @@
+ 
+ # Check wether we are using shadow passwords
+ 	echo -n "Checking for /etc/shadow: "
+-	if test "`cat /etc/shadow`" != ""; then
++	if test -f /etc/shadow; then
+ 		echo "found"
+ 		SHADOW="-DSHADOW_PASSWD"
+ 	else
