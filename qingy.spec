@@ -1,12 +1,11 @@
 #
 # TODO:
 #	- fix stupid prefix
-#	- pl desc
 # if prefix is not set
 # etc goes to /usr
 
-Summary:	Qingy is a replacement for getty
-Summary(pl):	Qingy to zastepca getty
+Summary:	Qingy - a replacement for getty
+Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
 Version:	0.2
 Release:	0.2
@@ -14,9 +13,9 @@ License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	2c9e7d20200f5c72e90b4cb974821b35
+URL:		http://qingy.sourceforge.net/
 BuildRequires:	DirectFB-devel
 BuildRequires:	pam-devel
-URL:		http://qingy.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,6 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README
-%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/%{name}/settings
-/etc/%{name}/default/*
+%dir %{_sysconfdir}/%{name}
+%attr(644,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/settings
+%dir %{_sysconfdir}/%{name}/default
+%{_sysconfdir}/%{name}/default/*
 %attr(755,root,root) %{_sbindir}/*
