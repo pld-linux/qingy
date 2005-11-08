@@ -1,0 +1,35 @@
+--- qingy-0.2.3.old/media/pam/qingy	2003-08-19 22:48:25.000000000 +0200
++++ qingy-0.2.3.new/media/pam/qingy	2005-11-08 15:01:18.518252000 +0100
+@@ -1,12 +1,21 @@
+ #%PAM-1.0
+-
+-auth       required	/lib/security/pam_securetty.so
+-auth       required	/lib/security/pam_stack.so service=system-auth
+-auth       required	/lib/security/pam_nologin.so
+-
+-account    required	/lib/security/pam_stack.so service=system-auth
+-
+-password   required	/lib/security/pam_stack.so service=system-auth
+-
+-session    required	/lib/security/pam_stack.so service=system-auth
+-session    optional	/lib/security/pam_console.so
++auth		required	pam_listfile.so item=user sense=deny file=/etc/security/blacklist onerr=succeed
++auth		required	pam_listfile.so item=user sense=deny file=/etc/security/blacklist.qingy onerr=succeed
++auth		required	pam_securetty.so
++auth		required	pam_unix.so
++auth		required	pam_tally.so deny=0 file=/var/log/faillog onerr=succeed
++auth		required	pam_shells.so
++auth		required	pam_nologin.so
++auth		optional	pam_mail.so
++account		required	pam_tally.so file=/var/log/faillog onerr=succeed
++account		required 	pam_access.so
++account		required	pam_time.so
++account		required	pam_unix.so
++password	required	pam_cracklib.so difok=2 minlen=8 dcredit=2 ocredit=2 retry=3
++password	required	pam_unix.so md5 shadow use_authtok
++password	required	pam_make.so /var/db
++session		required	pam_unix.so
++session		required	pam_env.so
++session		required	pam_limits.so change_uid
++#session    	required	pam_selinux.so
++session		optional	pam_console.so
