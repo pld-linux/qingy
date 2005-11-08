@@ -1,3 +1,8 @@
+#
+#	TODO:
+#		- build user have to be in the video group - build process
+#		  needs access to /dev/fb0 - eliminate this.
+# 
 Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
