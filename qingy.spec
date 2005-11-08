@@ -7,7 +7,7 @@ Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
 Version:	0.2.3
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -15,6 +15,7 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://qingy.sourceforge.net/
 Patch0:		%{name}-prefix.patch
 Patch1:		%{name}-datadir.patch
+Patch2:		%{name}-pam.patch
 BuildRequires:	DirectFB-devel
 BuildRequires:	autoconf
 BuildRequires:	fbset
@@ -39,6 +40,7 @@ siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__autoconf}
@@ -57,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README
+%doc ChangeLog README HOWTO_THEMES NEWS TODO AUTHORS COPYING INSTALL
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/settings
 %{_sysconfdir}/%{name}/sessions
