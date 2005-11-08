@@ -6,16 +6,13 @@
 Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
-Version:	0.2.3
-Release:	1.1
+Version:	0.6.0
+Release:	0.1
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	aff76c982645ea7afc948fedb475fc00
+# Source0-md5:	4815233c4258f54ffbfe822e4ab45152
 URL:		http://qingy.sourceforge.net/
-Patch0:		%{name}-prefix.patch
-Patch1:		%{name}-datadir.patch
-Patch2:		%{name}-pam.patch
 BuildRequires:	DirectFB-devel
 BuildRequires:	autoconf
 BuildRequires:	fbset
@@ -38,13 +35,10 @@ siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__autoconf}
-%configure
+%configure --enable-pam --disable-gpm-lock --disable-optimizations
 
 %{__make}
 
@@ -59,11 +53,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README HOWTO_THEMES NEWS TODO AUTHORS COPYING INSTALL
+%doc AUTHORS ChangeLog NEWS README THANKS TODO
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/settings
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/welcomes
 %{_sysconfdir}/%{name}/sessions
-%{_sysconfdir}/directfbrc.qingy
-/etc/pam.d/%{name}
+%{_datadir}/%{name}
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/pam.d/%{name}
+%{_libdir}/%{name}
 %attr(755,root,root) %{_sbindir}/*
-%{_datadir}/*
+%{_infodir}/*
