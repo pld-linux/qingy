@@ -7,7 +7,7 @@ Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
 Version:	0.6.0
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -38,7 +38,7 @@ siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
 
 %build
 %{__autoconf}
-%configure --enable-pam --disable-gpm-lock --disable-optimizations
+%configure --enable-pam --enable-gpm-lock --enable-optimizations
 
 %{__make}
 
@@ -47,6 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/X11/Sessions
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,3 +64,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}
 %attr(755,root,root) %{_sbindir}/*
 %{_infodir}/*
+%dir %{_sysconfdir}/X11/Sessions
