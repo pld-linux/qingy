@@ -2,12 +2,14 @@
 #	TODO:
 #		- build user have to be in the video group - build process
 #		  needs access to /dev/fb0 - eliminate this.
+#		- console locking mechanism is broken (as of 0.6.0) 
+#		- have some bugs - pretty, but not 'rock solid stable' :-( 
 # 
 Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
 Version:	0.6.0
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -27,11 +29,13 @@ Qingy is a replacement for getty. It uses DirectFB to provide a fast,
 nice GUI without the overhead of the X Window System. It allows the
 user to log in and start the session of his choice (text terminal,
 GNOME, KDE, wmaker, etc.).
+The console locking mechanism is broken in this release. 
 
 %description -l pl
 Qingy jest zastêpc± getty. U¿ywa DirectFB aby zapewniæ szybkie, ³adne
 GUI bez nadmiarowo¶ci X Window System. Pozwala u¿ytkownikom zalogowaæ
 siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
+Mechanizm blokowania konsoli nie dziala poprawnie w tej wersji.
 
 %prep
 %setup -q
