@@ -12,7 +12,7 @@ Version:	0.6.0
 Release:	0.3
 License:	GPL
 Group:		Applications/System
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/qingy/%{name}-%{version}.tar.bz2
 # Source0-md5:	4815233c4258f54ffbfe822e4ab45152
 URL:		http://qingy.sourceforge.net/
 BuildRequires:	DirectFB-devel
@@ -29,20 +29,25 @@ Qingy is a replacement for getty. It uses DirectFB to provide a fast,
 nice GUI without the overhead of the X Window System. It allows the
 user to log in and start the session of his choice (text terminal,
 GNOME, KDE, wmaker, etc.).
-The console locking mechanism is broken in this release. 
+
+Note: the console locking mechanism is broken in this release.
 
 %description -l pl
 Qingy jest zastêpc± getty. U¿ywa DirectFB aby zapewniæ szybkie, ³adne
 GUI bez nadmiarowo¶ci X Window System. Pozwala u¿ytkownikom zalogowaæ
 siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
-Mechanizm blokowania konsoli nie dziala poprawnie w tej wersji.
+
+Uwaga: mechanizm blokowania konsoli nie dzia³a poprawnie w tej wersji.
 
 %prep
 %setup -q
 
 %build
 %{__autoconf}
-%configure --enable-pam --enable-gpm-lock --enable-optimizations
+%configure \
+	--enable-gpm-lock \
+	--enable-optimizations \
+	--enable-pam
 
 %{__make}
 
