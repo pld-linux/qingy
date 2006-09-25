@@ -1,0 +1,44 @@
+diff -uNr qingy-0.9.1.orig/configure qingy-0.9.1/configure
+--- qingy-0.9.1.orig/configure	2006-08-04 05:32:06.000000000 +0000
++++ qingy-0.9.1/configure	2006-09-25 12:04:46.000000000 +0000
+@@ -21120,7 +21120,7 @@
+ # End compile emacs stuff
+ 
+ # Check for ncurses
+-	HEADERS="curses.h term.h"
++	HEADERS="ncurses/curses.h ncurses/term.h"
+ 	NCURSESLIB=""
+ 
+ for ac_header in $HEADERS
+diff -uNr qingy-0.9.1.orig/configure.in qingy-0.9.1/configure.in
+--- qingy-0.9.1.orig/configure.in	2006-08-04 05:31:52.000000000 +0000
++++ qingy-0.9.1/configure.in	2006-09-25 12:03:03.000000000 +0000
+@@ -125,7 +125,7 @@
+ # End compile emacs stuff
+ 
+ # Check for ncurses
+-	HEADERS="curses.h term.h"
++	HEADERS="ncurses/curses.h ncurses/term.h"
+ 	NCURSESLIB=""
+ 	AC_CHECK_HEADERS([$HEADERS],,[AC_MSG_ERROR([$HEADERS_ERROR_MESSAGE])],)
+ 	AC_CHECK_LIB(ncurses, setupterm, [NCURSESLIB="-lncurses"],[AC_MSG_ERROR([$LIBRARIES_ERROR_MESSAGE])] , )
+diff -uNr qingy-0.9.1.orig/src/libraries/misc.c qingy-0.9.1/src/libraries/misc.c
+--- qingy-0.9.1.orig/src/libraries/misc.c	2006-08-03 05:49:57.000000000 +0000
++++ qingy-0.9.1/src/libraries/misc.c	2006-09-25 12:03:36.000000000 +0000
+@@ -30,14 +30,14 @@
+ #endif
+ 
+ #include <ctype.h>
+-#include <curses.h>
++#include <ncurses/curses.h>
+ #include <pwd.h>
+ #include <netdb.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <stdarg.h>
+ #include <string.h>
+-#include <term.h>
++#include <ncurses/term.h>
+ #include <time.h>
+ #include <unistd.h>
+ #include <utmp.h>
