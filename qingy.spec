@@ -1,7 +1,5 @@
 #
 #	TODO:
-#		- build user have to be in the video group - build process
-#		  needs access to /dev/fb0 - eliminate this.
 #		- console locking mechanism is broken (as of 0.6.0) 
 #		- have some bugs - pretty, but not 'rock solid stable' :-( 
 #		- bcond for screensavers, x, ...
@@ -9,7 +7,7 @@ Summary:	Qingy - a replacement for getty
 Summary(pl):	Qingy - zastêpca getty
 Name:		qingy
 Version:	0.9.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/qingy/%{name}-%{version}.tar.bz2
@@ -26,6 +24,7 @@ BuildRequires:	xorg-lib-libXScrnSaver-devel
 BuildRequires:  xorg-proto-scrnsaverproto-devel
 Requires:	DirectFB-font-ft2
 Requires:	DirectFB-image-png
+Requires:	DirectFB-image-jpeg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -56,13 +55,13 @@ Uwaga: mechanizm blokowania konsoli nie dzia³a poprawnie w tej wersji.
 	--enable-x-support \
 	--enable-DirectFB-support \
 	--enable-screen-savers \
+	--with-themes-dir=%{_datadir}/%{name}/themes
 	
 #--disable-shadow	don't use shadow for authentication
 #--enable-static-build	compile qingy statically (default is no)
 #--enable-crypto=<arg>	make qingy encrypt communications with its user interface. Supported crypto libraries are: none (no
 #			encryption), openssl (openssl RSA encryption), libgcrypt (GNU libgcrypt RSA encryption)
 #--with-screen-savers-dir specify screen savers directory
-#--with-themes-dir       specify themes directory
 
 %{__make}
 
