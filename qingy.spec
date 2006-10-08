@@ -86,5 +86,5 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/pam.d/%{name}
 %{_libdir}/%{name}
 %attr(755,root,root) %{_sbindir}/*
-%{_infodir}/*
+%{_infodir}/*.info*
 %dir %{_sysconfdir}/X11/Sessions
