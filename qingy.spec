@@ -21,7 +21,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libXScrnSaver-devel
-BuildRequires:  xorg-proto-scrnsaverproto-devel
+BuildRequires:	xorg-proto-scrnsaverproto-devel
 Requires:	DirectFB-font-ft2
 Requires:	DirectFB-image-png
 Requires:	DirectFB-image-jpeg
