@@ -4,7 +4,7 @@
 #		- have some bugs - pretty, but not 'rock solid stable' :-( 
 #		- bcond for screensavers, x, ...
 Summary:	Qingy - a replacement for getty
-Summary(pl):	Qingy - zastêpca getty
+Summary(pl.UTF-8):   Qingy - zastÄ™pca getty
 Name:		qingy
 Version:	0.9.1
 Release:	1
@@ -35,12 +35,12 @@ GNOME, KDE, wmaker, etc.).
 
 Note: the console locking mechanism is broken in this release.
 
-%description -l pl
-Qingy jest zastêpc± getty. U¿ywa DirectFB aby zapewniæ szybkie, ³adne
-GUI bez nadmiarowo¶ci X Window System. Pozwala u¿ytkownikom zalogowaæ
-siê i wybraæ sesjê (terminal tekstowy, GNOME, KDE, wmaker, itp.).
+%description -l pl.UTF-8
+Qingy jest zastÄ™pcÄ… getty. UÅ¼ywa DirectFB aby zapewniÄ‡ szybkie, Å‚adne
+GUI bez nadmiarowoÅ›ci X Window System. Pozwala uÅ¼ytkownikom zalogowaÄ‡
+siÄ™ i wybraÄ‡ sesjÄ™ (terminal tekstowy, GNOME, KDE, wmaker, itp.).
 
-Uwaga: mechanizm blokowania konsoli nie dzia³a poprawnie w tej wersji.
+Uwaga: mechanizm blokowania konsoli nie dziaÅ‚a poprawnie w tej wersji.
 
 %prep
 %setup -q
