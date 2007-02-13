@@ -4,7 +4,7 @@
 #		- have some bugs - pretty, but not 'rock solid stable' :-( 
 #		- bcond for screensavers, x, ...
 Summary:	Qingy - a replacement for getty
-Summary(pl.UTF-8):   Qingy - zastępca getty
+Summary(pl.UTF-8):	Qingy - zastępca getty
 Name:		qingy
 Version:	0.9.1
 Release:	1
