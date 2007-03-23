@@ -3,15 +3,17 @@
 #		- console locking mechanism is broken (as of 0.6.0) 
 #		- have some bugs - pretty, but not 'rock solid stable' :-( 
 #		- bcond for screensavers, x, ...
+#		- !BR /proc/cpuinfo
+
 Summary:	Qingy - a replacement for getty
 Summary(pl.UTF-8):	Qingy - zastępca getty
 Name:		qingy
-Version:	0.9.1
+Version:	0.9.5
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/qingy/%{name}-%{version}.tar.bz2
-# Source0-md5:	87e7d3a7b06365b193d3486d3b14ab06
+# Source0-md5:	2b2183e92a981ec59a1d042516c999ab
 Patch0:		%{name}-ncurses.patch
 URL:		http://qingy.sourceforge.net/
 BuildRequires:	DirectFB-devel
