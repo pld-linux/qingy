@@ -1,0 +1,75 @@
+--- qingy-0.9.7/configure.in~	2008-12-26 13:50:57.533517811 +0100
++++ qingy-0.9.7/configure.in	2008-12-26 13:56:58.390981284 +0100
+@@ -26,72 +26,6 @@
+ 			GCCMAJOR="`echo $GCCVERSION | cut -c 1`"
+ 			GCCMINOR="`echo $GCCVERSION | cut -c 3`"
+ 			AC_MSG_RESULT([$GCCVERSION])
+-			if test ["$GCCMAJOR" == "3"] -o ["$GCCMAJOR" == "4"]; then
+-				#Good! let see if we can see the system arch
+-				PROCESSOR=`cat /proc/cpuinfo`
+-				#Is our CPU a Celeron?
+-			  if test "`echo $PROCESSOR | grep \"Celeron\"`" != ""; then
+-				  CPUFLAGS="-march=pentium2"
+-				fi
+-				if test "`echo $PROCESSOR | grep \"Celeron (Coppermine)\"`" != ""; then
+-			 		CPUFLAGS="-march=pentium3"
+-				fi
+-				#Is our CPU a Pentium?
+-				if test "`echo $PROCESSOR | grep \"Pentium\"`" != ""; then
+-					CPUFLAGS="-march=pentium"
+-				fi
+-				#Is our CPU a Pentium II?
+-				if test "`echo $PROCESSOR | grep \"Pentium II\"`" != ""; then
+-					CPUFLAGS="-march=pentium2"
+-				fi
+-				#Is our CPU a Pentium III?
+-				if test "`echo $PROCESSOR | grep \"Pentium III\"`" != ""; then
+-					CPUFLAGS="-march=pentium3"
+-				fi
+-				#Is our CPU a Pentium 4?
+-				if test "`echo $PROCESSOR | grep \"Intel(R) Pentium(R) 4\"`" != ""; then
+-					CPUFLAGS="-march=pentium4"
+-				fi
+-				#Is our CPU a Mobile Pentium 4?
+-				if test "`echo $PROCESSOR | grep \"Intel(R) Pentium(R) M\"`" != ""; then
+-					if test ["$GCCMAJOR" == "4"] -o ["$GCCMINOR" == "4"]; then
+-						CPUFLAGS="-march=pentium4m"
+-					else
+-						CPUFLAGS="-march=pentium4"
+-					fi
+-				fi
+-				#K6 processor
+-				if test "`echo $PROCESSOR | grep \"AMD-K6(tm)\"`" != ""; then
+-				  CPUFLAGS="-march=k6"
+-				fi
+-				#Athlon processors
+-				if test "`echo $PROCESSOR | grep \"AMD Athlon(tm)\"`" != ""; then
+-				  CPUFLAGS="-march=athlon"
+-				fi
+-				if test "`echo $PROCESSOR | grep \"AMD Athlon(tm) MP\"`" != ""; then
+-				  CPUFLAGS="-march=athlon-mp"
+-				fi
+-				if test "`echo $PROCESSOR | grep \"AMD Athlon(tm) XP\"`" != ""; then
+-				  CPUFLAGS="-march=athlon-xp"
+-				fi
+-				if test "`echo $PROCESSOR | grep \"AMD Athlon(tm) 64\"`" != ""; then
+-				   CPUFLAGS="-march=athlon64"
+-				fi
+-				#Is our CPU an Ultra Sparc?
+-				if test "`echo $PROCESSOR | grep \"UltraSparc\"`" != ""; then
+-					CPUFLAGS="-mcpu=ultrasparc"
+-				fi
+-			else
+-				#Alas, we can set only generic arch optimizations
+-				PROCESSOR=`uname -m | grep 86`
+-				if test "$PROCESSOR" != ""; then
+-					CPUFLAGS="-march=$PROCESSOR"
+-				fi
+-			fi
+-			if test "$CPUFLAGS" != ""; then
+-				echo "Applying architecture optimizations: "$CPUFLAGS
+-			fi
+-			CFLAGS="$CPUFLAGS $MY_CFLAGS"
+ 		fi
+ 	fi
+ 	
