@@ -15,6 +15,7 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/qingy/%{name}-%{version}.tar.bz2
 # Source0-md5:	710592c7dea0a255da2499cbea50da84
 Patch0:		%{name}-ncurses.patch
+Patch1:		%{name}-no-opt.patch
 URL:		http://qingy.sourceforge.net/
 BuildRequires:	DirectFB-devel
 BuildRequires:	autoconf
@@ -47,16 +48,21 @@ Uwaga: mechanizm blokowania konsoli nie działa poprawnie w tej wersji.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--enable-gpm-lock \
 	--enable-optimizations \
 	--enable-pam \
 	--enable-x-support \
 	--enable-DirectFB-support \
-	--enable-screen-savers \
+	--disable-screen-savers \
 	--with-themes-dir=%{_datadir}/%{name}/themes
 	
 #--disable-shadow	don't use shadow for authentication
